@@ -1,0 +1,15 @@
+services:
+  app:
+    container_name: react-mui-app   # コンテナ名
+    build:
+      context: .                    # Dockerfileの在処
+      dockerfile: Dockerfile        # ファイル名
+    volumes:
+    - type: bind                    # 自分のPCのファイルとDockerコンテナを同期
+      source: ./app                 # 同期元は自分のPC
+      target: /home/react-mui/app   # 同期先のフォルダ
+    command: /bin/sh                # コンテナ起動時のコマンド
+    ports:
+      - 3000:3000                   # 自分のPCとコンテナのポートを接続
+    stdin_open: true                # コンテナ外部から入力を受け付ける
+    tty: true                       # コンテナ内部でコマンドを実行する
