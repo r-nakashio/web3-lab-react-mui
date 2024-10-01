@@ -1,5 +1,5 @@
 /*Reactが提供する関数をインポート*/
-import React, { useEffect, useState } from 'react'; //タイマー利用時にuseEffectのコメントアウト解除
+import React, { /*useEffect,*/ useState } from 'react'; //タイマー利用時にuseEffectのコメントアウト解除
 /*以下四行で利用するMUIをインポート*/
 import { Button, ButtonGroup, Typography, Stack, Box } from '@mui/material';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
@@ -134,6 +134,7 @@ const Timer = () => {
 /*
 const MetaMaskConnect = () => {
   const [account, setAccount] = useState(null);
+  // eslint-disable-next-line
   const [web3, setWeb3] = useState(null);
 
   const connectMetaMask = async () => {
