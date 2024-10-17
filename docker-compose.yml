@@ -8,8 +8,14 @@ services:
     - type: bind                    # 自分のPCのファイルとDockerコンテナを同期
       source: ./app                 # 同期元は自分のPC
       target: /home/react-mui/app   # 同期先のフォルダ
+    - type: volume
+      source: node_modules
+      target: /home/react-mui/app/node_modules
     command: /bin/sh                # コンテナ起動時のコマンド
     ports:
       - 3000:3000                   # 自分のPCとコンテナのポートを接続
     stdin_open: true                # コンテナ外部から入力を受け付ける
     tty: true                       # コンテナ内部でコマンドを実行する
+
+volumes:
+  node_modules:
