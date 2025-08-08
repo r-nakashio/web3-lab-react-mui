@@ -1,6 +1,11 @@
-# Version 20のNode.jsをベースにする
-FROM node:20-alpine
-# Docker接続時に入るリポジトリ
-WORKDIR /home/react-mui/app
-# ビルド時に実行されるコマンド
-RUN npm install -g npm create-react-app
+# Microsoft公式のdevcontainerイメージを使用
+FROM mcr.microsoft.com/devcontainers/javascript-node:20
+
+# 作業ディレクトリを設定（devcontainerと同じパス）
+WORKDIR /workspaces/
+
+# create-react-appをグローバルインストール
+RUN npm install -g create-react-app
+
+# nodeユーザーに切り替え
+USER node
